@@ -33,7 +33,7 @@ connection.connect();
 
 //API
 ///GET request and response are the parameters
-app.get("/api/miyembro", (req, res) => {
+app.get("/get", (req, res) => {
     //create a query
     connection.query("SELECT * FROM userdata", (err, rows, fields) =>{
         //checking errors
@@ -66,7 +66,7 @@ app.get("/api/miyembro/:id", (req, res) => {
 
 //POST
 app.use(express.urlencoded({extended: false}))
-app.post("/api/miyembro/", (req, res) => {
+app.post("/post", (req, res) => {
     const fname =   req.body.fname;
     const lname = req.body.lname;
     const email = req.body.email;
