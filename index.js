@@ -67,14 +67,14 @@ app.get("/api/miyembro/:id", (req, res) => {
 //POST
 app.use(express.urlencoded({extended: false}))
 app.post("/post", (req, res) => {
-    const fname =   req.body.fname;
-    const lname = req.body.lname;
-    const email = req.body.email;
-    const gender = req.body.gender;
+    const Item_Name =   req.body.Item_Name;
+    const Item_Price = req.body.Item_Price;
+    const Quantity = req.body.Quantity;
+    const Supplier = req.body.Supplier;
 
     const id = req.body.id;
 
-    connection.query(`INSERT INTO userdata (first_name, last_name, email, gender) VALUE ('${fname}', '${lname}', '${email}', '${gender}' WHERE id = '${id}')`, 
+    connection.query(`INSERT INTO product_info (Item_Name, Item_Price, Quantity, Supplier) VALUE ('${Item_Name}', '${Item_Price}', '${Quantity}', '${Supplier}' WHERE id = '${id}')`, 
     (err, rows, fields) => {
         if(err) throw err;
         res.json({msg: `Succesfully inserted`});
@@ -90,7 +90,7 @@ app.use(express.urlencoded({extended: false}));
 app.delete("/api/miyembro/", (req, res) => {
     const id = req.body.id;
 
-    connection.query(`DELETE FROM userdata WHERE id= '${id}'`, (err, rows, fields) => {
+    connection.query(`DELETE FROM product_info WHERE id= '${id}'`, (err, rows, fields) => {
         if(err) throw err
         res.json({msg: `Successfully deleted!`})
     })
