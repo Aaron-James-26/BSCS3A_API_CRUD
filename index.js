@@ -16,6 +16,7 @@ const logger = (req, res, next) =>{
 
 app.use(logger)
 app.use(cors())
+app.use(express.json());// use this in fetch API for CRUD
 //connection to mysql
 const connection = mysql.createConnection({
     host: "baetaqcqgftgiaor4glx-mysql.services.clever-cloud.com",
